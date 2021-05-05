@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Title from '../components/Title'
 import Hello from '../components/Hello'
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       </Head>
 
       <main>
+        <Title />
         <Hello />
       </main>
     </div>
