@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Title from '../components/Title'
-import Hello from '../components/Hello'
+import Count from '../components/Count'
+import Button from '../components/Button'
 
 const Home = () => {
   return (
@@ -12,8 +13,9 @@ const Home = () => {
       </Head>
 
       <main>
-        <Title />
-        <Hello />
+        <Title text="title" />
+        <Count />
+        <Button />
       </main>
     </div>
   )

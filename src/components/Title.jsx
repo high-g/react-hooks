@@ -1,7 +1,5 @@
-import React from 'react'
-
-const Title = () => {
-  return <div>title</div>
+const Title = ({ text }) => {
+  return <div>{text}</div>
 }
 
 export default Title
