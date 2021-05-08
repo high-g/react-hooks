@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import Title from '../components/Title'
 import Count from '../components/Count'
 import Button from '../components/Button'
@@ -8,8 +8,8 @@ const Home = () => {
   const [height, setHeight] = useState(160)
   const [weight, setWeight] = useState(50)
 
-  const incrementHeight = () => setHeight(height + 1)
-  const incrementWeight = () => setWeight(weight + 1)
+  const incrementHeight = useCallback(() => setHeight(height + 1))
+  const incrementWeight = useCallback(() => setWeight(weight + 1))
 
   return (
     <div>
