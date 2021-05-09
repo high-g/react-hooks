@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import Title from '../components/Title'
 import Count from '../components/Count'
 import Button from '../components/Button'
@@ -10,6 +10,11 @@ const Home = () => {
 
   const incrementHeight = useCallback(() => setHeight(height + 1))
   const incrementWeight = useCallback(() => setWeight(weight + 1))
+
+  const isEven = useMemo(() => {
+    console.log('身長')
+    return height % 2 === 0
+  }, [height])
 
   return (
     <div>
