@@ -26,6 +26,9 @@ const Home = () => {
 
       <main>
         <Title text="title" />
+        <p>
+          身長 {height} は {isEven ? '偶数' : '奇数'}
+        </p>
         <Count text="身長" count={height} />
         <Count text="体重" count={weight} />
         <Button handleClick={incrementHeight}>身長+1</Button>
