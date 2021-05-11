@@ -57,7 +57,6 @@ const Home = () => {
         <FuncyInput ref={ref} />
         <button
           onClick={() => {
-            console.log('ref', ref)
             ref.current.setFocus()
           }}
         >
