@@ -1,10 +1,27 @@
 import Head from 'next/head'
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback, useMemo, useRef, forwardRef, useImperativeHandle } from 'react'
 import Title from '../components/Title'
 import Count from '../components/Count'
 import Button from '../components/Button'
 
+const FuncyInput = forwardRef((props, ref) => {
+  const inputRef = useRef({})
+
+  useImperativeHandle(ref, () => {
+    return {
+      setFocus() {
+        console.log('setFocus')
+        inputRef.current.focus()
+        inputRef.current.value = 1
+      },
+    }
+  })
+
+  return <input ref={inputRef} />
+})
+
 const Home = () => {
+  const ref = useRef({})
   const [height, setHeight] = useState(160)
   const [weight, setWeight] = useState(50)
 
@@ -34,6 +51,19 @@ const Home = () => {
         <Button handleClick={incrementHeight}>身長+1</Button>
         <Button handleClick={incrementWeight}>体重+1</Button>
       </main>
+
+      <div>
+        <h2>useImperativeHandle</h2>
+        <FuncyInput ref={ref} />
+        <button
+          onClick={() => {
+            console.log('ref', ref)
+            ref.current.setFocus()
+          }}
+        >
+          click
+        </button>
+      </div>
     </div>
   )
 }
