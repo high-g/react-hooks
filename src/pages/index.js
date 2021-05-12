@@ -1,5 +1,14 @@
 import Head from 'next/head'
-import { useState, useCallback, useMemo, useRef, forwardRef, useImperativeHandle } from 'react'
+import {
+  useState,
+  useCallback,
+  useMemo,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  useLayoutEffect,
+  useEffect,
+} from 'react'
 import Title from '../components/Title'
 import Count from '../components/Count'
 import Button from '../components/Button'
@@ -33,6 +42,18 @@ const Home = () => {
     return height % 2 === 0
   }, [height])
 
+  const callRender = () => {
+    console.log('call render')
+  }
+
+  useLayoutEffect(() => {
+    console.log('call useLayoutEffect')
+  })
+
+  useEffect(() => {
+    console.log('call useEffect')
+  })
+
   return (
     <div>
       <Head>
@@ -42,6 +63,7 @@ const Home = () => {
       </Head>
 
       <main>
+        {callRender()}
         <Title text="title" />
         <p>
           身長 {height} は {isEven ? '偶数' : '奇数'}
