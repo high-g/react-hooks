@@ -8,6 +8,7 @@ import {
   useImperativeHandle,
   useLayoutEffect,
   useEffect,
+  useDebugValue,
 } from 'react'
 import Title from '../components/Title'
 import Count from '../components/Count'
@@ -36,6 +37,8 @@ const Home = () => {
 
   const incrementHeight = useCallback(() => setHeight(height + 1))
   const incrementWeight = useCallback(() => setWeight(weight + 1))
+
+  useDebugValue(height > 170 ? 'tall' : 'short')
 
   const isEven = useMemo(() => {
     console.log('身長')
